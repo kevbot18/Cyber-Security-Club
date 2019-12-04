@@ -2,6 +2,8 @@
 
 This repository holds the source files for the UNH Cyber Security Club website being developed in ENGL502.
 
+The development version of the site is at https://jolly-poitras-197c4b.netlify.com/
+
 ## Setup
 
 The website is using [Hugo](https://gohugo.io/) to make maintaining and updating the site easier.
