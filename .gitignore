@@ -1,1 +1,9 @@
 # files to ignore go here.
+/public/
+/resources/_gen/
+*.min.js
+*.min.css
+*.jpg
+*.png
+*.jpeg
+*.webp

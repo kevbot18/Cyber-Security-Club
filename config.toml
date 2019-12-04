@@ -1,0 +1,52 @@
+# Production
+# baseURL = "https://cyber-unh.org"
+# Development
+baseURL = "https://jolly-poitras-197c4b.netlify.com/"
+languageCode = "en-us"
+title = "UNH Cyber Center"
+theme = "Cyber"
+
+sectionPagesMenu = "main"
+
+[menu]
+	[[menu.main]]
+		identifier = "about"
+		name = "About"
+		url = "/about/"
+	[[menu.main]]
+		identifier = "news"
+		name = "News"
+		url = "/news/"
+	[[menu.main]]
+		identifier = "events"
+		name = "Events"
+		url = "/events/"
+	[[menu.main]]
+		identifier = "resources"
+		name = "Resources"
+		url = "/resources/"
+	[[menu.main]]
+		identifier = "contact"
+		name = "Contact Us"
+		url = "/contact/"
+
+[services]
+	[services.instagram]
+		disableInlineCSS = true
+	[services.twitter]
+    	disableInlineCSS = true
+
+[privacy]
+	[privacy.instagram]
+		disable = false
+		simple = true
+	[privacy.twitter]
+		disable = false
+		enableDNT = true
+		simple = true
+	[privacy.vimeo]
+		disable = false
+		simple = false
+	[privacy.youtube]
+		disable = false
+		privacyEnhanced = true
