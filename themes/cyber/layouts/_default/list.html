@@ -1,0 +1,22 @@
+{{ define "main" }}
+<main aria-role="main">
+	<h1>{{ .Title }}</h1>
+	<div>
+		{{ .Content }}
+	</div>
+	<div class="list-group">
+		<!-- Ranges through content/posts/*.md -->
+		{{ range .Pages }}
+		<a href="{{.Permalink}}" class="list-group-item list-group-item-action">
+			<article>
+				<h2>{{ .Title }}</h2>
+				<h7>From {{ .Date.Format "Monday, Jan 2, 2006" }}</h7>
+				<summary>
+					{{ .Summary }}
+				</summary>
+			</article>
+		</a>
+		{{ end }}
+	</div>
+</main>
+{{ end }}
