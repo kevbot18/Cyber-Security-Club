@@ -13,7 +13,7 @@ sectionPagesMenu = "main"
 
 [params]
 	Nickname = "UNH Cyber"
-	Greeting = ""
+	Greeting = "Club Meets Mondays at 6 in Kingsbury CS Conference Room"
 	Twitter = "https://twitter.com"
 	Facebook = "https://facebook.com"
 	Email = "user@example.com"
@@ -23,13 +23,13 @@ sectionPagesMenu = "main"
 		description = "TODO: add more details"
 		image = "deep-web.jpg"
 	[[params.Topics]]
-		name = "Hacking"
-		description = "TODO: add more details"
-		image = "hacking.jpg"
-	[[params.Topics]]
 		name = "Cryptocurrency"
 		description = "TODO: add more details"
 		image = "Bitcoin.svg"
+	[[params.Topics]]
+		name = "Hacking"
+		description = "TODO: add more details"
+		image = "hacking.jpg"
 	
 	[[params.Team]]
 		Name = "Ken Graf"
