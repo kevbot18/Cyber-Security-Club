@@ -2,8 +2,9 @@
 /public/
 /resources/_gen/
 *.min.js
-*.min.css
+# *.min.css
 *.jpg
 *.png
 *.jpeg
 *.webp
+*.svg

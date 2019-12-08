@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+	<div class="container">
+		<a class="navbar-brand js-scroll-trigger" href="{{ .Site.BaseURL }}">{{ .Site.Params.Nickname }}</a>
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+			data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+			aria-label="Toggle navigation">
+			Menu
+			<i class="fas fa-bars"></i>
+		</button>
+		<div class="navbar" id="navbarResponsive">
+			<ul class="navbar-nav mr-auto">
+				{{ $currentPage := . }}
+				{{ range .Site.Menus.main }}
+				{{ $isSection := or ($currentPage.IsMenuCurrent `main` .) ($currentPage.HasMenuCurrent `main` .) }}
+				{{ $isSection = or $isSection (and (ne $currentPage.FirstSection $currentPage.CurrentSection) (eq $currentPage.Name .Name)) }}
+				<li class="nav-item {{ if $isSection }} active {{ end }}">
+					<a class="nav-link" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+				</li>
+				{{ end }}
+			</ul>
+		</div>
+	</div>
+</nav>

@@ -8,27 +8,81 @@ theme = "Cyber"
 
 sectionPagesMenu = "main"
 
+[permalinks]
+	post = "/:year/:month/:slug/"
+
+[params]
+	Nickname = "UNH Cyber"
+	Greeting = ""
+	Twitter = "https://twitter.com"
+	Facebook = "https://facebook.com"
+	Email = "user@example.com"
+
+	[[params.Topics]]
+		name = "Dark Web"
+		description = "TODO: add more details"
+		image = "deep-web.jpg"
+	[[params.Topics]]
+		name = "Hacking"
+		description = "TODO: add more details"
+		image = "hacking.jpg"
+	[[params.Topics]]
+		name = "Cryptocurrency"
+		description = "TODO: add more details"
+		image = "Bitcoin.svg"
+	
+	[[params.Team]]
+		Name = "Ken Graf"
+		Role = "Head"
+		Image = ""
+		Twitter = ""
+		Facebook = ""
+		Email = ""
+	
+	[[params.Team]]
+		Name = "Max DelRio"
+		Role = "Captain"
+		Image = ""
+		Twitter = ""
+		Facebook = ""
+		Email = ""
+
+	[[params.Team]]
+		Name = "Ben Patton"
+		Role = "Networking"
+		Image = ""
+		Twitter = ""
+		Facebook = ""
+		Email = ""
+	
+
+
 [menu]
 	[[menu.main]]
 		identifier = "about"
 		name = "About"
 		url = "/about/"
+		weight = 1
 	[[menu.main]]
 		identifier = "news"
 		name = "News"
 		url = "/news/"
+		weight = 5
 	[[menu.main]]
 		identifier = "events"
 		name = "Events"
 		url = "/events/"
+		weight = 3
 	[[menu.main]]
 		identifier = "resources"
 		name = "Resources"
 		url = "/resources/"
+		weight = 4
 	[[menu.main]]
 		identifier = "contact"
 		name = "Contact Us"
 		url = "/contact/"
+		weight = 2
 
 [services]
 	[services.instagram]
