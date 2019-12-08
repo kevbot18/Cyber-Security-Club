@@ -10,111 +10,107 @@
   </div>
 </header>
 
-TODO: Fix spacing
+<!-- Topics -->
+<section class="page-section">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h2 class="section-heading text-uppercase">Topics</h2>
+      <h3 class="section-subheading text-muted">The club is student-directed. You can pick the next topic!</h3>
+    </div>
+  </div>
+  <div class="row text-center">
+    {{ range .Site.Params.Topics }}
+    <div class="col-md-4">
+      <img src="{{ .image }}" class="topic img-fluid rounded-circle">
+      <h4 class="service-heading">{{ .name }}</h4>
+      <p class="text-muted">{{ .description }}</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
 
-<div class="sections">
-  <!-- Topics -->
-  <section class="page-section">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">Topics</h2>
-        <h3 class="section-subheading text-muted">The club is student-directed. You can pick the next topic!</h3>
-      </div>
+<!-- article Grid -->
+<section class="bg-light page-section">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h2 class="section-heading text-uppercase">News</h2>
+      <h3 class="section-subheading text-muted">Check out some of our most recent content.</h3>
     </div>
-    <div class="row text-center">
-      {{ range .Site.Params.Topics }}
-      <div class="col-md-4">
-        <img src="{{ .image }}" class="topic img-fluid rounded-circle">
-        <h4 class="service-heading">{{ .name }}</h4>
-        <p class="text-muted">{{ .description }}</p>
-      </div>
-      {{ end }}
-    </div>
-  </section>
-
-  <!-- article Grid -->
-  <section class="bg-light page-section">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">Recent</h2>
-        <h3 class="section-subheading text-muted">Check out some of our most recent content.</h3>
-      </div>
-    </div>
-    <div class="row">
-      {{ range first 8 (where .Paginator.Pages.ByPublishDate.Reverse "Type" "!=" "page" ) }}
-      <div class="col-md-4 col-sm-6">
-        <a class="article-link" href="{{ .Permalink }}">
-          <div class="article-preview">
-            <h4>{{ .Title }}</h4>
-            <p class="date">{{ .PublishDate.Format "January 2, 2006" }}</p>
-            <p class="tag text-muted">{{ .Type }}</p>
-            <p class="summary">{{ .Summary }}</p>
-          </div>
-        </a>
-      </div>
-      {{ end }}
-    </div>
-  </section>
-
-  <!-- Team -->
-  <section class="bg-light page-section" id="team">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-      </div>
-    </div>
-    <div class="row">
-      {{ range .Site.Params.Team }}
-      <div class="col-sm-4">
-        <div class="team-member">
-          {{ with .Image }}
-          <img class="mx-auto rounded-circle team-member-img" src="{{ . }}" alt="">
-          {{ else }}
-          <i class="fa fa-user-circle team-member-img"></i>
-          {{ end }}
-          <h4>{{ .Name }}</h4>
-          <p class="text-muted">{{ .Role }}</p>
-          <ul class="list-inline social-buttons">
-            {{ with .Twitter }}
-            <li class="list-inline-item">
-              <a href="{{ . }}">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            {{ end }}
-            {{ with .Facebook }}
-            <li class="list-inline-item">
-              <a href="{{. }}">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            {{ end }}
-            {{ with .LinkedIn }}
-            <li class="list-inline-item">
-              <a href="{{ . }}">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </li>
-            {{ end }}
-            {{ with .Email }}
-            <li class="list-inline-item">
-              <a href="mailto:{{ . }}">
-                <i class="far fa-envelope"></i>
-              </a>
-            </li>
-            {{ end }}
-          </ul>
+  </div>
+  <div class="row">
+    {{ range first 8 (where .Paginator.Pages.ByPublishDate.Reverse "Type" "!=" "page" ) }}
+    <div class="col-md-4 col-sm-6">
+      <a class="article-link" href="{{ .Permalink }}">
+        <div class="article-preview">
+          <h4>{{ .Title }}</h4>
+          <p class="date">{{ .PublishDate.Format "January 2, 2006" }}</p>
+          <p class="tag text-muted">{{ .Type }}</p>
+          <p class="summary">{{ .Summary }}</p>
         </div>
-      </div>
-      {{ end }}
+      </a>
     </div>
-    <div class="row">
-      <div class="col-lg-8 mx-auto text-center">
-        <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam
-          veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+    {{ end }}
+  </div>
+</section>
+
+<!-- Team -->
+<section class="page-section" id="team">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+      <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+    </div>
+  </div>
+  <div class="row">
+    {{ range .Site.Params.Team }}
+    <div class="col-sm-4">
+      <div class="team-member">
+        {{ with .Image }}
+        <img class="mx-auto rounded-circle team-member-img" src="{{ . }}" alt="">
+        {{ else }}
+        <i class="fa fa-user-circle team-member-img"></i>
+        {{ end }}
+        <h4>{{ .Name }}</h4>
+        <p class="text-muted">{{ .Role }}</p>
+        <ul class="list-inline social-buttons">
+          {{ with .Twitter }}
+          <li class="list-inline-item">
+            <a href="{{ . }}">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          {{ end }}
+          {{ with .Facebook }}
+          <li class="list-inline-item">
+            <a href="{{. }}">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          {{ end }}
+          {{ with .LinkedIn }}
+          <li class="list-inline-item">
+            <a href="{{ . }}">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </li>
+          {{ end }}
+          {{ with .Email }}
+          <li class="list-inline-item">
+            <a href="mailto:{{ . }}">
+              <i class="far fa-envelope"></i>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
       </div>
     </div>
-  </section>
-</div>
+    {{ end }}
+  </div>
+  <div class="row">
+    <div class="col-lg-8 mx-auto text-center">
+      <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam
+        veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+    </div>
+  </div>
+</section>
 {{ end }}
