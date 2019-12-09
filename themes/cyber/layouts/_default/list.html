@@ -17,9 +17,9 @@
 				<h2 class="">{{ .Title }}</h2>
 				<p class="date">{{ .PublishDate.Format "January 2, 2006" }}</p>
 				<p class="tags text-muted">{{ range .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}</p>
-				<summary class="summary">
+				<div class="summary">
 					{{ .Summary }}
-				</summary>
+				</div>
 				{{ end }}
 			</a>
 		</article>
@@ -44,5 +44,4 @@
 	</div>
 	{{ end }}
 </div>
-{{ .Kind }}
 {{ end }}
