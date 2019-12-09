@@ -6,19 +6,26 @@
 <!-- Ranges through content/posts/*.md -->
 <div class="row">
 	<div class="col-lg-9">
+		{{ $kind := .Kind }}
 		{{ range .Pages }}
 		<article class="article-preview">
 			<a href="{{.Permalink}}" class="article-link">
+				{{ if eq $kind "taxonomyTerm" }}
+				<h2 class="">{{ .Title }}</h2>
+				<p class="date">Pages: {{ len .Pages }}</p>
+				{{ else }}
 				<h2 class="">{{ .Title }}</h2>
 				<p class="date">{{ .PublishDate.Format "January 2, 2006" }}</p>
 				<p class="tags text-muted">{{ range .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}</p>
 				<summary class="summary">
 					{{ .Summary }}
 				</summary>
+				{{ end }}
 			</a>
 		</article>
 		{{ end }}
 	</div>
+	{{ if (ne .Kind "taxonomyTerm") }}
 	<div class="col-sm-3 tags">
 		<h4 class="tags">Tags</h1>
 			{{ $scratch := .Scratch }}
@@ -35,5 +42,7 @@
 				{{ end }}
 			</ul>
 	</div>
+	{{ end }}
 </div>
+{{ .Kind }}
 {{ end }}
