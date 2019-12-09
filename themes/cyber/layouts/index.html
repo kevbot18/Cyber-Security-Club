@@ -40,7 +40,7 @@
   <div class="row">
     {{ range first 8 (where .Paginator.Pages.ByPublishDate.Reverse "Type" "!=" "page" ) }}
     <div class="col-md-4 col-sm-6">
-      <a class="article-link" href="{{ .Permalink }}">
+      <a class="article-link" href="{{ .RelPermalink }}">
         <div class="article-preview">
           <h4>{{ .Title }}</h4>
           <p class="date">{{ .PublishDate.Format "January 2, 2006" }}</p>

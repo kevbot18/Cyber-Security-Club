@@ -9,7 +9,7 @@
 		{{ $kind := .Kind }}
 		{{ range .Pages }}
 		<article class="article-preview">
-			<a href="{{.Permalink}}" class="article-link">
+			<a href="{{.RelPermalink}}" class="article-link">
 				{{ if eq $kind "taxonomyTerm" }}
 				<h2 class="">{{ .Title }}</h2>
 				<p class="date">Pages: {{ len .Pages }}</p>

@@ -9,7 +9,9 @@ theme = "Cyber"
 sectionPagesMenu = "main"
 
 [permalinks]
-	post = "/:year/:month/:slug/"
+	news = "/news/:year/:month/:slug/"
+	events = "/events/:year/:month/:slug/"
+	resources = "/resources/:year/:slug/"
 
 [params]
 	Nickname = "UNH Cyber"
@@ -17,6 +19,7 @@ sectionPagesMenu = "main"
 	Twitter = "https://twitter.com"
 	Facebook = "https://facebook.com"
 	Email = "user@example.com"
+	baseURLIsRoot = true
 
 	[[params.Topics]]
 		name = "Dark Web"
