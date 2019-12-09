@@ -5,8 +5,8 @@
 		{{ range .Site.Menus.main }}
 		{{ $isSection := or ($currentPage.IsMenuCurrent `main` .) ($currentPage.HasMenuCurrent `main` .) }}
 		{{ $isSection = or $isSection (and (ne $currentPage.FirstSection $currentPage.CurrentSection) (eq $currentPage.Name .Name)) }}
-		<li class="{{ if $isSection }} active {{ end }}">
-			<a class="nav-item" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+		<li class="">
+			<a class="nav-item {{ if $isSection }} active {{ end }}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
 		</li>
 		{{ end }}
 	</ul>
