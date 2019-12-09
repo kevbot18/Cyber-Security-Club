@@ -1,5 +1,5 @@
 <nav class="navbar">
-	<a class="brand" href="{{ .Site.BaseURL }}">{{ .Site.Params.Nickname }}</a>
+	<a class="brand" href="{{ if .Site.Params.BaseURLIsRoot }}/{{ else }}{{ .Site.BaseURL }}{{end}}">{{ .Site.Params.Nickname }}</a>
 	<ul class="nav-list">
 		{{ $currentPage := . }}
 		{{ range .Site.Menus.main }}
