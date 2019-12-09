@@ -184,6 +184,10 @@ header.masthead .introduction .title {
 	background-color: #060606;
 }
 
+.article-link {
+	display: block;
+}
+
 .article-link:hover,
 .article-link:focus {
 	text-decoration: none
