@@ -1,0 +1,13 @@
+<nav class="navbar">
+	<a class="brand" href="{{ .Site.BaseURL }}">{{ .Site.Params.Nickname }}</a>
+	<ul class="nav-list">
+		{{ $currentPage := . }}
+		{{ range .Site.Menus.main }}
+		{{ $isSection := or ($currentPage.IsMenuCurrent `main` .) ($currentPage.HasMenuCurrent `main` .) }}
+		{{ $isSection = or $isSection (and (ne $currentPage.FirstSection $currentPage.CurrentSection) (eq $currentPage.Name .Name)) }}
+		<li class="">
+			<a class="nav-item {{ if $isSection }} active {{ end }}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+		</li>
+		{{ end }}
+	</ul>
+</nav>

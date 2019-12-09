@@ -1,11 +1,15 @@
-<meta charset="utf-8">
-<title>{{ .Title }}</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ .Title }}</title>
 
-<link rel="stylesheet" href="/css/cyborg-bootstrap.min.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/agency.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 
-<!-- RSS feed -->
-{{ range .AlternativeOutputFormats -}}
-<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
-{{ end -}}
+	<!-- RSS feed -->
+	{{ range .AlternativeOutputFormats -}}
+	<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+	{{ end -}}
+</head>

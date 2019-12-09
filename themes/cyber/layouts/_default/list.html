@@ -1,22 +1,48 @@
 {{ define "main" }}
-<main aria-role="main">
-	<h1>{{ .Title }}</h1>
-	<div>
-		{{ .Content }}
-	</div>
-	<div class="list-group">
-		<!-- Ranges through content/posts/*.md -->
+<h1>{{ .Title }}</h1>
+<div>
+	{{ .Content }}
+</div>
+<!-- Ranges through content/posts/*.md -->
+<div class="row">
+	<div class="col-lg-9">
+		{{ $kind := .Kind }}
 		{{ range .Pages }}
-		<a href="{{.Permalink}}" class="list-group-item list-group-item-action">
-			<article>
-				<h2>{{ .Title }}</h2>
-				<h7>From {{ .Date.Format "Monday, Jan 2, 2006" }}</h7>
-				<summary>
+		<article class="article-preview">
+			<a href="{{.Permalink}}" class="article-link">
+				{{ if eq $kind "taxonomyTerm" }}
+				<h2 class="">{{ .Title }}</h2>
+				<p class="date">Pages: {{ len .Pages }}</p>
+				{{ else }}
+				<h2 class="">{{ .Title }}</h2>
+				<p class="date">{{ .PublishDate.Format "January 2, 2006" }}</p>
+				<p class="tags text-muted">{{ range .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}</p>
+				<summary class="summary">
 					{{ .Summary }}
 				</summary>
-			</article>
-		</a>
+				{{ end }}
+			</a>
+		</article>
 		{{ end }}
 	</div>
-</main>
+	{{ if (ne .Kind "taxonomyTerm") }}
+	<div class="col-sm-3 tags">
+		<h4 class="tags">Tags</h1>
+			{{ $scratch := .Scratch }}
+			{{ range .Pages }}
+			{{ with .Params.tags }}
+			{{ range . }}
+			{{ $scratch.SetInMap "tags" . . }}
+			{{ end }}{{ end }}{{ end }}
+			<ul>
+				{{ range $scratch.GetSortedMapValues "tags" }}
+				<li>
+					<a href="/tags/{{ replace . ` ` `-` }}/">{{ . }}</a>
+				</li>
+				{{ end }}
+			</ul>
+	</div>
+	{{ end }}
+</div>
+{{ .Kind }}
 {{ end }}

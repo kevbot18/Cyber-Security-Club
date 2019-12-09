@@ -1,25 +1,118 @@
 {{ define "main" }}
-<main aria-role="main">
-  <header class="homepage-header">
-    {{ with .Params.subtitle }}
-    <span class="subtitle">{{.}}</span>
+<!-- Header -->
+<header class="masthead">
+  <div class="introduction">
+    <img src="/team.jpg" alt="Cyber Security Team" class="img-fluid">
+    <div class="title text-uppercase">{{ .Site.Title }}</div>
+    {{ with .Site.Params.Greeting }}
+    <div class="greeting">{{ . }}</div>
     {{ end }}
-  </header>
-  <div class="homepage-content">
-    <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
-    {{.Content}}
+  </div>
+</header>
+
+<!-- Topics -->
+<section class="page-section">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h2 class="section-heading text-uppercase">Topics</h2>
+      <h3 class="section-subheading text-muted">The club is student-directed. You can pick the next topic!</h3>
+    </div>
+  </div>
+  <div class="row text-center">
+    {{ range .Site.Params.Topics }}
+    <div class="col-md-4">
+      <img src="{{ .image }}" class="topic img-fluid rounded-circle">
+      <h4 class="service-heading">{{ .name }}</h4>
+      <p class="text-muted">{{ .description }}</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- article Grid -->
+<section class="bg-light page-section">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h2 class="section-heading text-uppercase">Latest Articles</h2>
+      <!-- <h3 class="section-subheading text-muted">Check out some of our most recent content.</h3> -->
+    </div>
   </div>
   <div class="row">
-    <div class="new col-md-6">
-      <!-- Note that .Pages is the same as .Site.RegularPages on the homepage template. -->
-      {{ range first 10 .Pages }}
-      <p>Latest Articles In Progress</p>
-      {{ .Summary }}
-      {{ end }}
+    {{ range first 8 (where .Paginator.Pages.ByPublishDate.Reverse "Type" "!=" "page" ) }}
+    <div class="col-md-4 col-sm-6">
+      <a class="article-link" href="{{ .Permalink }}">
+        <div class="article-preview">
+          <h4>{{ .Title }}</h4>
+          <p class="date">{{ .PublishDate.Format "January 2, 2006" }}</p>
+          <p class="type text-muted">{{ .Type }}</p>
+          <p class="summary">{{ .Summary }}</p>
+        </div>
+      </a>
     </div>
-    <div class="social col-md-6">
-      <iframe src="/twitter.html"></iframe>
+    {{ end }}
+  </div>
+</section>
+
+{{ with .Site.Params.Team }}
+<!-- Team -->
+<section class="page-section" id="team">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+      <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
     </div>
   </div>
-</main>
+  <div class="row">
+    {{ range . }}
+    <div class="col-sm-4">
+      <div class="team-member">
+        {{ with .Image }}
+        <img class="mx-auto rounded-circle team-member-img" src="{{ . }}" alt="">
+        {{ else }}
+        <i class="fa fa-user-circle team-member-img"></i>
+        {{ end }}
+        <h4>{{ .Name }}</h4>
+        <p class="text-muted">{{ .Role }}</p>
+        <ul class="list-inline social-buttons">
+          {{ with .Twitter }}
+          <li class="list-inline-item">
+            <a href="{{ . }}">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          {{ end }}
+          {{ with .Facebook }}
+          <li class="list-inline-item">
+            <a href="{{. }}">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          {{ end }}
+          {{ with .LinkedIn }}
+          <li class="list-inline-item">
+            <a href="{{ . }}">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </li>
+          {{ end }}
+          {{ with .Email }}
+          <li class="list-inline-item">
+            <a href="mailto:{{ . }}">
+              <i class="far fa-envelope"></i>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+  <div class="row">
+    <div class="col-lg-8 mx-auto text-center">
+      <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam
+        veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+    </div>
+  </div>
+</section>
+{{ end }}
 {{ end }}
