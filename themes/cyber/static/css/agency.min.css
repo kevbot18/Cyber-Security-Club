@@ -92,6 +92,11 @@ section > * {
 	box-shadow: 0 0 0 .2rem rgba(254, 209, 55, .5) !important
 }
 
+img {
+	max-width:100%;
+	max-height:100%;
+}
+
 nav {
 	background-color: #212529;
 	overflow-x: auto;

@@ -1,6 +1,6 @@
-# Git Repo for UNH Cyber Security Club Website
+# Git Repo for UNH Cybersecurity Club Website
 
-This repository holds the source files for the UNH Cyber Security Club website being developed in ENGL502.
+This repository holds the source files for the UNH Cybersecurity Club website being developed in ENGL502.
 
 The development version of the site is at https://jolly-poitras-197c4b.netlify.com/
 
