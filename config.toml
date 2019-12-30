@@ -8,6 +8,8 @@ theme = "Cyber"
 
 sectionPagesMenu = "main"
 
+summaryLength = 35
+
 [permalinks]
 	news = "/news/:year/:month/:slug/"
 	events = "/events/:year/:month/:slug/"
@@ -23,15 +25,15 @@ sectionPagesMenu = "main"
 
 	[[params.Topics]]
 		name = "Dark Web"
-		description = "TODO: add more details"
+		description = "Learn how to access the dark web, how it works, and what it's used for."
 		image = "deep-web.jpg"
 	[[params.Topics]]
 		name = "Cryptocurrency"
-		description = "TODO: add more details"
+		description = "Look into the algorithms behind cryptocurrencies to learn what makes them work."
 		image = "Bitcoin.svg"
 	[[params.Topics]]
 		name = "Hacking"
-		description = "TODO: add more details"
+		description = "Learn techniques to hack into systems and how to defend against attacks."
 		image = "hacking.jpg"
 	
 	[[params.Team]]

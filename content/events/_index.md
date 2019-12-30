@@ -4,6 +4,6 @@ date: 2019-12-08T17:21:11-05:00
 draft: true
 ---
 
-[Click here to go to view the UNH Cyber calendar (UNH login required)](https://example.com)
+To view the UNH Cyber calendar, go to the O365-Cybersecurity-club group on your UNH Outlook account.
 
-TODO: Inform them the calender link is broken.
+You can learn about past and upcoming events by looking below.

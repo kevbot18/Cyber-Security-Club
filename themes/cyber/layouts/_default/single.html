@@ -1,6 +1,22 @@
 {{ define "main" }}
 <main aria-role="main">
 	<h1>{{ .Title }}</h1>
-	{{ .Content }}
+	<div class="row">
+		<div class="col-lg-9">
+			{{ .Content }}
+		</div>
+		{{ if (ne .Type "page")}}
+		<div class="col-sm-3 tags">
+			<h4 class="tags">Tags</h4>
+			<ul>
+				{{ range .Params.tags }}
+				<li>
+					<a href="/tags/{{ replace . ` ` `-` }}">{{ . }}</a>
+				</li>
+				{{ end }}
+			</ul>
+		</div>
+		{{ end }}
+	</div>
 </main>
 {{ end }}
